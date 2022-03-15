@@ -269,6 +269,11 @@ textarea {
 	vertical-align: middle
 }
 
+.rightpic {
+    float: right; /* Выравнивание по правому краю */
+    margin: 0 0 5px 5px; /* Отступы вокруг фотографии */
+   }
+
 .header__bookmark-counter {
 	font-size: 18px;
 	font-weight: bold;

@@ -16,9 +16,13 @@
           <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#skyprogram"></use>
         </svg>
       </a>
+      </a>
       <a href="bookmarks.htm" class="header__bookmark-btn">
         <img src="/static/img/bookmark.png" alt="" class="header__bookmark-icon" width="28">
-        <span class="header__bookmark-counter">3</span>
+        <span class="header__bookmark-counter">8</span>
+      </a>
+      <a href="/search">
+        <img src="/static/img/kn.png" alt="" class="rightpic" width="28">
       </a>
     </div>
   </header>
@@ -27,14 +31,14 @@
 {%for post in postes%}
       <div class="items__item item">
         <div class="item__top">
-          <a href="/templetes/user-feed.html" class="item__head"  >
+          <a href="{{url_for('post_find_blueprint.post_find_user', name=post.poster_name)}}" class="item__head"  >
             <div class="item__ava-wrap">
               <img src="{{post['poster_avatar']}}" alt="аватарка" class="item__ava" width="47">
             </div>
             <span class="item__username">"{{post['poster_name']}}"</span>
           </a>
         </div>
-        <a href="post.html" class="item__post-link">
+        <a href="{{url_for('post_all_blueprint.post_id', postid=post.pk)}}" class="item__post-link">
           <img src="{{post['pic']}}" alt="" width="348" class="item__post-img">
         </a>
         <p class="truncate-text">"{{post['content']}}"</p>
@@ -46,9 +50,7 @@
           </div>
         </div>
         <div class="item__post-bottom">
-          <form action="/posts/<postid>" method="get" >
-        <input type="" name="{{post['pk']}}">
-          <a href="/posts.html" class="item__btn-more">Подробнее</a>
+          <a href="{{url_for('post_all_blueprint.post_id', postid=post.pk)}}" class="item__btn-more">Подробнее</a>
           <button type="button" class="item__bookmark-btn">
             <img src="/static/img/bookmark.png" alt="" class="item__bookmark-icon" width="24">
           </button>
